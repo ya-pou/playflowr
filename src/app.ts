@@ -1,11 +1,15 @@
-import express from 'express';
 import dotenv from 'dotenv';
-
 dotenv.config();
-const app = express();
 
-app.use('/', (req, res) => {
-  res.json('Welcome on playflowr ' + process.env.PORT);
-});
+import express, { Router } from 'express';
+import routes from './routes';
+
+
+const app = express();
+const router = Router();
+
+
+app.use(routes);
+
 
 export default app;
